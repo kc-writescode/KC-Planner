@@ -1,0 +1,58 @@
+.bottomNav {
+    display: none;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: var(--color-bg-secondary);
+    border-top: 1px solid var(--color-border);
+    padding: var(--spacing-sm) var(--spacing-md);
+    padding-bottom: max(var(--spacing-sm), env(safe-area-inset-bottom));
+    z-index: 100;
+}
+
+.navList {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    list-style: none;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+.navItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    min-width: 56px;
+    color: var(--color-text-tertiary);
+    transition: all var(--transition-fast);
+    border-radius: var(--radius-md);
+}
+
+.navItem span {
+    font-size: 0.625rem;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.02em;
+}
+
+.navItem:active {
+    transform: scale(0.95);
+}
+
+.navItem.active {
+    color: var(--color-accent-primary);
+}
+
+.navItem.active svg {
+    filter: drop-shadow(0 0 8px var(--color-accent-glow));
+}
+
+@media (max-width: 768px) {
+    .bottomNav {
+        display: block;
+    }
+}

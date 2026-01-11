@@ -1,0 +1,277 @@
+.timeBlockGrid {
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.gridHeader {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-bg-hover);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.grid {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.hourRow {
+    display: grid;
+    grid-template-columns: 80px 1fr;
+    border-bottom: 1px solid var(--color-border);
+    min-height: 48px;
+}
+
+.hourRow:last-child {
+    border-bottom: none;
+}
+
+.hourRow.currentHour {
+    background: var(--color-accent-glow);
+}
+
+.hourLabel {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: var(--spacing-sm) var(--spacing-md);
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+    border-right: 1px solid var(--color-border);
+}
+
+.nowIndicator {
+    font-size: 0.625rem;
+    font-weight: 700;
+    color: var(--color-accent-primary);
+    margin-top: 2px;
+}
+
+.hourBlock {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    cursor: pointer;
+    transition: background var(--transition-fast);
+}
+
+.hourBlock:not(.hasBlock):hover {
+    background: var(--color-bg-hover);
+}
+
+.hourBlock:not(.hasBlock):hover .emptyBlock {
+    opacity: 1;
+}
+
+.emptyBlock {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    color: var(--color-text-muted);
+    font-size: 0.75rem;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.blockContent {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    width: 100%;
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--block-color);
+    border-radius: var(--radius-sm);
+    color: white;
+    position: relative;
+}
+
+.blockTitle {
+    flex: 1;
+    font-size: 0.8125rem;
+    font-weight: 500;
+}
+
+.blockIcon {
+    opacity: 0.7;
+}
+
+.deleteBlock {
+    position: absolute;
+    right: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(0, 0, 0, 0.3);
+    border-radius: var(--radius-sm);
+    color: white;
+    font-size: 1rem;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.blockContent:hover .deleteBlock {
+    opacity: 1;
+}
+
+/* Modal */
+.modalOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.7);
+    backdrop-filter: blur(4px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-md);
+    z-index: var(--z-modal);
+}
+
+.modal {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-xl);
+    padding: var(--spacing-lg);
+    width: 100%;
+    max-width: 400px;
+    animation: slideUp var(--transition-normal) ease;
+}
+
+.modalTitle {
+    font-size: 1.125rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.modalTime {
+    font-size: 0.875rem;
+    color: var(--color-accent-primary);
+    margin-bottom: var(--spacing-lg);
+}
+
+.formGroup {
+    margin-bottom: var(--spacing-md);
+}
+
+.formGroup label {
+    display: block;
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--spacing-xs);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+.input {
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-primary);
+    font-size: 0.9375rem;
+}
+
+.input:focus {
+    outline: none;
+    border-color: var(--color-accent-primary);
+}
+
+.categoryGrid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--spacing-xs);
+}
+
+.categoryOption {
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-sm);
+    font-size: 0.75rem;
+    color: var(--color-text-secondary);
+    text-transform: capitalize;
+    transition: all var(--transition-fast);
+}
+
+.categoryOption:hover {
+    border-color: var(--cat-color);
+    color: var(--cat-color);
+}
+
+.categoryOption.selected {
+    background: var(--cat-color);
+    border-color: var(--cat-color);
+    color: white;
+}
+
+.blockToggle {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    width: 100%;
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    font-size: 0.875rem;
+    transition: all var(--transition-fast);
+}
+
+.blockToggle:hover {
+    border-color: var(--color-border-strong);
+}
+
+.blockToggle.blocked {
+    background: var(--color-error-bg);
+    border-color: var(--color-error);
+    color: var(--color-error);
+}
+
+.modalActions {
+    display: flex;
+    gap: var(--spacing-sm);
+    margin-top: var(--spacing-lg);
+}
+
+@keyframes slideUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@media (max-width: 768px) {
+    .gridHeader {
+        grid-template-columns: 60px 1fr;
+    }
+
+    .hourRow {
+        grid-template-columns: 60px 1fr;
+    }
+
+    .hourLabel {
+        padding: var(--spacing-xs) var(--spacing-sm);
+        font-size: 0.6875rem;
+    }
+
+    .categoryGrid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}

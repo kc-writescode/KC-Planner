@@ -1,0 +1,139 @@
+.taskItem {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-md);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    border-left: 3px solid var(--category-color, var(--color-border));
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.taskItem:hover {
+    border-color: var(--color-border-strong);
+    background: var(--color-bg-hover);
+}
+
+.taskItem.completed {
+    opacity: 0.6;
+}
+
+.taskItem.completed .title {
+    text-decoration: line-through;
+    color: var(--color-text-tertiary);
+}
+
+.taskItem.compact {
+    padding: var(--spacing-sm);
+}
+
+.taskItem.compact .title {
+    font-size: 0.8125rem;
+}
+
+.dragHandle {
+    display: flex;
+    align-items: center;
+    padding: var(--spacing-xs);
+    color: var(--color-text-tertiary);
+    cursor: grab;
+    opacity: 0;
+    transition: opacity var(--transition-fast);
+}
+
+.taskItem:hover .dragHandle {
+    opacity: 1;
+}
+
+.dragHandle:active {
+    cursor: grabbing;
+}
+
+.checkbox {
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-tertiary);
+    transition: color var(--transition-fast);
+    padding: 2px;
+}
+
+.checkbox:hover {
+    color: var(--color-accent-primary);
+}
+
+.checked {
+    color: var(--color-success);
+}
+
+.content {
+    flex: 1;
+    min-width: 0;
+}
+
+.title {
+    font-size: 0.9375rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    margin-bottom: 2px;
+    word-break: break-word;
+}
+
+.description {
+    font-size: 0.8125rem;
+    color: var(--color-text-tertiary);
+    margin-bottom: var(--spacing-xs);
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    flex-shrink: 0;
+}
+
+.priority {
+    display: flex;
+    align-items: center;
+    padding: 4px;
+}
+
+.deleteButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 6px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-tertiary);
+    opacity: 0;
+    transition: all var(--transition-fast);
+}
+
+.taskItem:hover .deleteButton {
+    opacity: 1;
+}
+
+.deleteButton:hover {
+    background: var(--color-error-bg);
+    color: var(--color-error);
+}

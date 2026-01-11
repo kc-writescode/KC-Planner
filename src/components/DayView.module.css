@@ -1,0 +1,336 @@
+.dayView {
+    animation: fadeIn var(--transition-normal) ease;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-xl);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.dateNav {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.navButton {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+}
+
+.navButton:hover {
+    background: var(--color-bg-hover);
+    color: var(--color-text-primary);
+    border-color: var(--color-border-strong);
+}
+
+.dateDisplay {
+    text-align: center;
+    min-width: 160px;
+}
+
+.projectBadge {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 12px;
+    background: rgba(var(--project-color), 0.1);
+    border: 1px solid var(--project-color);
+    border-radius: 20px;
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--project-color);
+}
+
+.projectDot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--project-color);
+}
+
+.dateTitle {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin-bottom: 2px;
+}
+
+.dateSubtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+}
+
+.todayButton {
+    padding: var(--spacing-xs) var(--spacing-md);
+    background: var(--color-accent-gradient);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.todayButton:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-glow);
+}
+
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xl);
+}
+
+.section {
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--spacing-lg);
+}
+
+.sectionHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+    flex-wrap: wrap;
+    gap: var(--spacing-sm);
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.sectionTitle h3 {
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+.sectionIcon {
+    color: var(--color-accent-primary);
+}
+
+.sectionHint {
+    font-size: 0.75rem;
+    color: var(--color-text-tertiary);
+}
+
+.badge {
+    font-size: 0.75rem;
+    padding: 2px 8px;
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-full);
+    color: var(--color-text-secondary);
+}
+
+.addButton {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    color: var(--color-accent-primary);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    border-radius: var(--radius-md);
+    transition: all var(--transition-fast);
+}
+
+.addButton:hover {
+    background: var(--color-accent-glow);
+}
+
+/* Goals */
+.goalsList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.goalItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-md);
+    border: 1px solid var(--color-border);
+    transition: all var(--transition-fast);
+}
+
+.goalItem.completed {
+    opacity: 0.6;
+}
+
+.goalItem.completed .goalText {
+    text-decoration: line-through;
+    color: var(--color-text-tertiary);
+}
+
+.goalNumber {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-accent-gradient);
+    color: white;
+    font-size: 0.75rem;
+    font-weight: 700;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+}
+
+.goalCheckbox {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid var(--color-border-strong);
+    border-radius: var(--radius-sm);
+    color: var(--color-success);
+    transition: all var(--transition-fast);
+    flex-shrink: 0;
+}
+
+.goalCheckbox:hover {
+    border-color: var(--color-success);
+    background: var(--color-success-bg);
+}
+
+.goalText {
+    flex: 1;
+    font-size: 0.9375rem;
+    color: var(--color-text-primary);
+}
+
+.goalDelete {
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-text-tertiary);
+    font-size: 1.25rem;
+    border-radius: var(--radius-sm);
+    opacity: 0;
+    transition: all var(--transition-fast);
+}
+
+.goalItem:hover .goalDelete {
+    opacity: 1;
+}
+
+.goalDelete:hover {
+    background: var(--color-error-bg);
+    color: var(--color-error);
+}
+
+.addGoalForm {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-md);
+    border: 1px dashed var(--color-border);
+}
+
+.goalInput {
+    flex: 1;
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    font-size: 0.9375rem;
+}
+
+.goalInput:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+/* Tasks */
+.tasksList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.addTaskForm {
+    padding: var(--spacing-md);
+    background: var(--color-bg-tertiary);
+    border: 1px solid var(--color-accent-primary);
+    border-radius: var(--radius-md);
+    margin-bottom: var(--spacing-md);
+}
+
+.taskInput {
+    width: 100%;
+    background: transparent;
+    border: none;
+    color: var(--color-text-primary);
+    font-size: 1rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.taskInput:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.addTaskActions {
+    display: flex;
+    gap: var(--spacing-sm);
+}
+
+.emptyState {
+    text-align: center;
+    padding: var(--spacing-xl);
+    color: var(--color-text-tertiary);
+}
+
+.emptyAction {
+    margin-top: var(--spacing-sm);
+    color: var(--color-accent-primary);
+    font-weight: 500;
+}
+
+.emptyAction:hover {
+    text-decoration: underline;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        align-items: stretch;
+        text-align: center;
+    }
+
+    .dateNav {
+        justify-content: center;
+    }
+
+    .todayButton {
+        align-self: center;
+    }
+
+    .section {
+        padding: var(--spacing-md);
+    }
+}

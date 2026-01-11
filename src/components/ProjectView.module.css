@@ -1,0 +1,761 @@
+.projectView {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - 80px);
+    animation: fadeIn var(--transition-normal) ease;
+}
+
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-lg) var(--spacing-xl);
+    background: var(--color-bg-secondary);
+    border-bottom: 1px solid var(--color-border);
+    flex-wrap: wrap;
+    gap: var(--spacing-md);
+}
+
+.projectInfo {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-md);
+}
+
+.projectIcon {
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--color-bg-tertiary);
+    border-radius: var(--radius-lg);
+    color: var(--project-color);
+    border: 1px solid var(--color-border);
+}
+
+.titles {
+    display: flex;
+    flex-direction: column;
+}
+
+.titleRow {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+}
+
+.editProjectBtn {
+    padding: 6px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-tertiary);
+    transition: all var(--transition-fast);
+}
+
+.editProjectBtn:hover {
+    background: var(--color-bg-hover);
+    color: var(--color-accent-primary);
+}
+
+.title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.subtitle {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    margin: 0;
+}
+
+/* Stats with Progress Ring */
+.stats {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-lg);
+}
+
+.progressRing {
+    position: relative;
+    width: 56px;
+    height: 56px;
+}
+
+.progressSvg {
+    width: 100%;
+    height: 100%;
+    transform: rotate(-90deg);
+}
+
+.progressBg {
+    fill: none;
+    stroke: var(--color-border);
+    stroke-width: 3;
+}
+
+.progressFill {
+    fill: none;
+    stroke: var(--project-color, var(--color-accent-primary));
+    stroke-width: 3;
+    stroke-linecap: round;
+    transition: stroke-dasharray var(--transition-normal);
+}
+
+.progressText {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 0.75rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.statItem {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.statValue {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--color-text-primary);
+}
+
+.statLabel {
+    font-size: 0.625rem;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+}
+
+/* Workspace Layout */
+.workspace {
+    flex: 1;
+    display: flex;
+    overflow: hidden;
+}
+
+.checklistPane {
+    flex: 1;
+    border-right: 1px solid var(--color-border);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+}
+
+.calendarPane {
+    width: 360px;
+    flex-shrink: 0;
+    background: var(--color-bg-tertiary);
+    display: flex;
+    flex-direction: column;
+    padding: var(--spacing-lg);
+    overflow-y: auto;
+}
+
+/* Pane Header */
+.paneHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+}
+
+.paneTitle {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+.addDetailBtn {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-xs);
+    padding: var(--spacing-xs) var(--spacing-sm);
+    background: var(--color-accent-glow);
+    border-radius: var(--radius-md);
+    color: var(--color-accent-primary);
+    font-size: 0.75rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.addDetailBtn:hover {
+    background: var(--color-accent-primary);
+    color: white;
+}
+
+/* Quick Add Form */
+.quickAddForm {
+    margin-bottom: var(--spacing-lg);
+}
+
+.quickAddInput {
+    width: 100%;
+    background: var(--color-bg-secondary);
+    border: 1px dashed var(--color-border-strong);
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-radius: var(--radius-md);
+    color: var(--color-text-primary);
+    font-size: 0.875rem;
+    transition: all var(--transition-fast);
+}
+
+.quickAddInput:focus {
+    outline: none;
+    border-color: var(--color-accent-primary);
+    border-style: solid;
+    box-shadow: 0 0 0 3px var(--color-accent-glow);
+}
+
+.quickAddInput::placeholder {
+    color: var(--color-text-muted);
+}
+
+/* Task Sections */
+.taskSections {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-lg);
+}
+
+.taskSection {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-sm);
+}
+
+.sectionTitle {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0;
+}
+
+.sectionDot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+}
+
+/* Task List */
+.taskList {
+    display: flex;
+    flex-direction: column;
+    gap: var(--spacing-xs);
+}
+
+/* Task Item */
+.taskItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm) var(--spacing-md);
+    background: var(--color-bg-secondary);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.taskItem:hover {
+    border-color: var(--color-border-strong);
+    background: var(--color-bg-hover);
+}
+
+.taskItem.completed {
+    opacity: 0.6;
+}
+
+.taskItem.completed .taskTitle {
+    text-decoration: line-through;
+    color: var(--color-text-tertiary);
+}
+
+.checkbox {
+    flex-shrink: 0;
+    color: var(--color-text-tertiary);
+    transition: color var(--transition-fast);
+    padding: 2px;
+}
+
+.checkbox:hover {
+    color: var(--color-accent-primary);
+}
+
+.checked {
+    color: var(--color-success);
+}
+
+.taskInfo {
+    flex: 1;
+    min-width: 0;
+}
+
+.taskTitle {
+    display: block;
+    font-size: 0.875rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.taskMeta {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    margin-top: 2px;
+}
+
+.metaItem {
+    display: flex;
+    align-items: center;
+    gap: 3px;
+    font-size: 0.6875rem;
+    color: var(--color-text-tertiary);
+}
+
+.taskActions {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    flex-shrink: 0;
+}
+
+.deleteBtn {
+    color: var(--color-text-muted);
+    padding: 4px;
+    border-radius: var(--radius-sm);
+    transition: all var(--transition-fast);
+    opacity: 0;
+}
+
+.taskItem:hover .deleteBtn {
+    opacity: 1;
+}
+
+.deleteBtn:hover {
+    color: var(--color-error);
+    background: var(--color-error-bg);
+}
+
+/* Empty State */
+.emptyState {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-2xl);
+    text-align: center;
+}
+
+.emptyIcon {
+    color: var(--color-text-muted);
+    margin-bottom: var(--spacing-sm);
+}
+
+.emptyState p {
+    font-size: 0.875rem;
+    color: var(--color-text-tertiary);
+    margin: 0;
+}
+
+/* Calendar Header */
+.calendarHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--spacing-md);
+}
+
+.calendarNav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    border-radius: var(--radius-md);
+    color: var(--color-text-secondary);
+    transition: all var(--transition-fast);
+}
+
+.calendarNav:hover {
+    background: var(--color-bg-hover);
+    color: var(--color-text-primary);
+}
+
+.calendarMonth {
+    font-size: 0.9375rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+}
+
+/* Calendar Grid */
+.calendarGrid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 2px;
+    margin-bottom: var(--spacing-lg);
+}
+
+.calendarDayName {
+    text-align: center;
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--color-text-muted);
+    text-transform: uppercase;
+    padding: var(--spacing-xs) 0;
+}
+
+.calendarDayEmpty {
+    aspect-ratio: 1;
+}
+
+.calendarDay {
+    aspect-ratio: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 4px;
+    border-radius: var(--radius-md);
+    background: var(--color-bg-secondary);
+    border: 1px solid transparent;
+    transition: all var(--transition-fast);
+    cursor: pointer;
+    position: relative;
+}
+
+.calendarDay:hover {
+    border-color: var(--color-border-strong);
+    background: var(--color-bg-hover);
+}
+
+.calendarDay.today {
+    border-color: var(--color-accent-primary);
+    background: var(--color-accent-glow);
+}
+
+.calendarDay.selected {
+    background: var(--color-accent-primary);
+    color: white;
+}
+
+.calendarDay.selected .dayNumber {
+    color: white;
+}
+
+.calendarDay.hasTask {
+    background: var(--color-bg-secondary);
+}
+
+.dayNumber {
+    font-size: 0.8125rem;
+    font-weight: 500;
+    color: var(--color-text-primary);
+    line-height: 1;
+}
+
+.taskDots {
+    display: flex;
+    gap: 2px;
+    margin-top: 3px;
+    align-items: center;
+}
+
+.taskDot {
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+}
+
+.moreDots {
+    font-size: 0.5rem;
+    color: var(--color-text-muted);
+    margin-left: 2px;
+}
+
+/* Upcoming List */
+.upcomingList {
+    border-top: 1px solid var(--color-border);
+    padding-top: var(--spacing-md);
+}
+
+.upcomingTitle {
+    font-size: 0.75rem;
+    font-weight: 600;
+    color: var(--color-text-tertiary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin: 0 0 var(--spacing-sm) 0;
+}
+
+.upcomingItem {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.upcomingItem:hover {
+    background: var(--color-bg-hover);
+}
+
+.upcomingDate {
+    font-size: 0.6875rem;
+    font-weight: 600;
+    color: var(--color-accent-primary);
+    background: var(--color-accent-glow);
+    padding: 2px 6px;
+    border-radius: var(--radius-sm);
+    flex-shrink: 0;
+}
+
+.upcomingTaskTitle {
+    flex: 1;
+    font-size: 0.8125rem;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.noUpcoming {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    padding: var(--spacing-md);
+    margin: 0;
+}
+
+/* Popup Overlay */
+.popupOverlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0, 0, 0, 0.3);
+    z-index: 100;
+}
+
+/* Date Popup */
+.datePopup {
+    position: fixed;
+    width: 300px;
+    max-height: 280px;
+    background: var(--color-bg-elevated);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-xl);
+    z-index: 101;
+    display: flex;
+    flex-direction: column;
+    animation: popupIn var(--transition-fast) ease;
+    overflow: hidden;
+}
+
+@keyframes popupIn {
+    from {
+        opacity: 0;
+        transform: translateY(-8px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.popupHeader {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: var(--spacing-sm) var(--spacing-md);
+    border-bottom: 1px solid var(--color-border);
+    background: var(--color-bg-tertiary);
+}
+
+.popupHeader h4 {
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-text-primary);
+    margin: 0;
+}
+
+.popupClose {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 24px;
+    height: 24px;
+    border-radius: var(--radius-sm);
+    color: var(--color-text-tertiary);
+    transition: all var(--transition-fast);
+}
+
+.popupClose:hover {
+    background: var(--color-bg-hover);
+    color: var(--color-text-primary);
+}
+
+.popupContent {
+    flex: 1;
+    overflow-y: auto;
+    padding: var(--spacing-sm);
+}
+
+.noTasksText {
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    padding: var(--spacing-md);
+    margin: 0;
+}
+
+.popupTask {
+    display: flex;
+    align-items: center;
+    gap: var(--spacing-sm);
+    padding: var(--spacing-sm);
+    border-radius: var(--radius-md);
+    cursor: pointer;
+    transition: all var(--transition-fast);
+}
+
+.popupTask:hover {
+    background: var(--color-bg-hover);
+}
+
+.popupTask.completed .popupTaskTitle {
+    text-decoration: line-through;
+    color: var(--color-text-tertiary);
+}
+
+.popupCheckbox {
+    flex-shrink: 0;
+    color: var(--color-text-tertiary);
+    transition: color var(--transition-fast);
+}
+
+.popupCheckbox:hover {
+    color: var(--color-accent-primary);
+}
+
+.popupTaskTitle {
+    flex: 1;
+    font-size: 0.8125rem;
+    color: var(--color-text-primary);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.popupTime {
+    font-size: 0.6875rem;
+    color: var(--color-text-muted);
+    flex-shrink: 0;
+}
+
+.popupAddBtn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-xs);
+    width: 100%;
+    padding: var(--spacing-sm);
+    border-top: 1px solid var(--color-border);
+    color: var(--color-accent-primary);
+    font-size: 0.8125rem;
+    font-weight: 500;
+    transition: all var(--transition-fast);
+}
+
+.popupAddBtn:hover {
+    background: var(--color-accent-glow);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+    .workspace {
+        flex-direction: column;
+        overflow-y: auto;
+    }
+
+    .checklistPane {
+        border-right: none;
+        border-bottom: 1px solid var(--color-border);
+        overflow-y: visible;
+    }
+
+    .calendarPane {
+        width: 100%;
+        overflow-y: visible;
+    }
+
+    .datePopup {
+        left: 50% !important;
+        top: 50% !important;
+        transform: translate(-50%, -50%) !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .header {
+        padding: var(--spacing-md);
+    }
+
+    .title {
+        font-size: 1.25rem;
+    }
+
+    .stats {
+        gap: var(--spacing-md);
+    }
+
+    .progressRing {
+        width: 48px;
+        height: 48px;
+    }
+
+    .checklistPane,
+    .calendarPane {
+        padding: var(--spacing-md);
+    }
+
+    .taskItem {
+        min-height: 44px;
+    }
+
+    .calendarDay {
+        min-height: 36px;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
